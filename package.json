@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "echo 'Build not needed - using tsx'",
-    "start": "tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "db:migrate": "tsx src/config/migrate.ts",
     "db:seed": "tsx src/config/seed.ts",
     "db:data": "tsx src/config/data.ts"
@@ -46,8 +46,6 @@
     "@types/node-cron": "^3.0.11",
     "@types/nodemailer": "^6.4.17",
     "@types/uuid": "^10.0.0",
-    "drizzle-kit": "^0.30.4",
-    "tsx": "^4.19.3",
-    "typescript": "^5.9.3"
+    "drizzle-kit": "^0.30.4"
   }
 }
