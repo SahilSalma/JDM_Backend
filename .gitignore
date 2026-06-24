@@ -3,7 +3,6 @@
 *.db-shm
 *.db-wal
 
-dist
 uploads
 node_modules
 
