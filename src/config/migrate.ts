@@ -405,6 +405,15 @@ async function migrate(): Promise<void> {
     CREATE INDEX IF NOT EXISTS reviews_rating_idx ON reviews(rating);
   `);
 
+  // ── Seed vehicle & navbar data ──
+  const seedNow = new Date().toISOString();
+  const existingVehicleData = sqlite.prepare(`SELECT rule_value FROM sale_conditions WHERE rule_key = 'vehicle_data'`).get() as { rule_value?: string } | undefined;
+  if (!existingVehicleData) {
+    sqlite.prepare(`INSERT INTO sale_conditions (id, rule_key, rule_value, description, is_active, updated_at) VALUES (?, ?, ?, ?, 1, ?)`)
+      .run(crypto.randomUUID(), 'vehicle_data', JSON.stringify(VEHICLE_DATA), 'Vehicle makes, models, and year ranges', seedNow);
+    console.log('Vehicle data seeded into sale_conditions.');
+  }
+
   // ── Migrate vehicle_data from sale_conditions to makes/models tables ──
   const vehicleRow = sqlite.prepare(`SELECT rule_value FROM sale_conditions WHERE rule_key = 'vehicle_data'`).get() as { rule_value?: string } | undefined;
   if (vehicleRow?.rule_value) {
@@ -561,6 +570,14 @@ async function migrate(): Promise<void> {
     insertCondition.run(crypto.randomUUID(), key, value, desc, now);
   }
   console.log('Site settings inserted.');
+
+  // Navbar links
+  const existingNavbar = sqlite.prepare(`SELECT id FROM navbar_settings WHERE setting_key = 'navbar_links'`).get();
+  if (!existingNavbar) {
+    sqlite.prepare(`INSERT INTO navbar_settings (id, setting_key, setting_value, description, is_active, updated_at) VALUES (?, ?, ?, ?, 1, ?)`)
+      .run(crypto.randomUUID(), 'navbar_links', JSON.stringify(NAVBAR_LINKS), 'Navbar brand configuration', now);
+    console.log('Navbar links inserted.');
+  }
 
   // Shipping zones
   const insertZone = sqlite.prepare(`
@@ -753,6 +770,27 @@ const POLICY_TERMS: Record<string, unknown>[] = [
 const STORY_P1 = 'At JDM Tokyo Motorsports, we are specializing about delivering Authentic Japanese Domestic Market (JDM) Automotive Parts, Performance Upgrades, and OEM components for a wide range of vehicles. With strong connections to Japan\'s automotive market and our main supplier in Japan, we provide high-quality parts including Low miles JDM engines, transmissions to enhance power, reliability, and style.';
 const STORY_P2 = 'Our Mission is to connect customers with high-quality JDM parts sourced directly from Japan\'s world-renowned automotive industry, ensuring exceptional quality, reliability, and performance you can trust.';
 const STORY_P3 = 'Whether you\'re building a high-performance car, restoring a classic JDM vehicle, or upgrading your daily driver, we provide reliable access to imported car parts, expert support, and competitive pricing. Every product we supply is carefully selected to ensure quality, compatibility, and performance.';
+
+const VEHICLE_DATA: { name: string; models: string[]; yearRange: { min: number; max: number } }[] = [
+  { name: 'Honda', models: ['Civic', 'Integra', 'Accord', 'S2000', 'Prelude', 'NSX', 'CR-V', 'Fit', 'Odyssey', 'Civic Type R'], yearRange: { min: 1985, max: 2025 } },
+  { name: 'Toyota', models: ['Supra', 'Celica', 'MR2', 'Corolla', 'Chaser', 'Mark II', 'Altezza', 'Soarer', 'Land Cruiser', 'Camry', 'GT86', 'Corolla AE86'], yearRange: { min: 1980, max: 2025 } },
+  { name: 'Nissan', models: ['Skyline', 'Silvia', '180SX', '240SX', '350Z', '370Z', 'GT-R', 'GT-R R35', 'Fairlady Z', 'Sentra', 'Altima', 'Maxima', 'Skyline GT-R', 'Primera'], yearRange: { min: 1985, max: 2025 } },
+  { name: 'Subaru', models: ['Impreza', 'WRX', 'WRX STI', 'Legacy', 'Forester', 'Outback', 'BRZ'], yearRange: { min: 1990, max: 2025 } },
+  { name: 'Mazda', models: ['RX-7', 'RX-8', 'MX-5', 'Eunos Roadster', 'Speed3', 'Miata', 'Mazda3', 'Mazda6', 'MX-5 Miata'], yearRange: { min: 1985, max: 2025 } },
+  { name: 'Mitsubishi', models: ['Lancer', 'Evolution', '3000GT', 'Eclipse', 'Galant', 'Pajero', '3000GT VR-4', 'Lancer Evolution'], yearRange: { min: 1985, max: 2025 } },
+  { name: 'Acura', models: ['Integra', 'RSX', 'NSX', 'TL', 'TSX', 'MDX'], yearRange: { min: 1985, max: 2025 } },
+  { name: 'Lexus', models: ['IS300', 'IS250', 'GS300', 'LS400', 'SC300', 'SC430', 'RX300'], yearRange: { min: 1990, max: 2025 } },
+  { name: 'Infiniti', models: ['G35', 'G37', 'Q50', 'Q60', 'I30', 'I35'], yearRange: { min: 1990, max: 2025 } },
+  { name: 'Hyundai', models: ['Genesis', 'Tiburon', 'Veloster', 'Elantra', 'Sonata'], yearRange: { min: 1990, max: 2025 } },
+  { name: 'Kia', models: ['Stinger', 'Optima', 'Forte', 'Soul'], yearRange: { min: 2000, max: 2025 } },
+];
+
+const NAVBAR_LINKS = {
+  mainBrands: ['honda', 'toyota', 'nissan', 'subaru', 'mazda', 'mitsubishi'],
+  otherBrands: ['acura', 'lexus', 'infiniti', 'hyundai', 'kia'],
+  customLinks: [],
+  moreLinks: ['about', 'blog', 'contact', 'track-order', 'warranty', 'shipping', 'returns', 'privacy', 'terms'],
+};
 
 migrate().catch((err) => {
   console.error('Migration failed:', err);
