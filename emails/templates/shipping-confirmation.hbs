@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>Your Order Has Shipped — #{{orderNumber}}</title>
+  <!--[if mso]>
+  <noscript>
+    <xml><o:OfficeDocumentSettings>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings></xml>
+  </noscript>
+  <![endif]-->
+  <style type="text/css">
+    body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%;
+          outline:none; text-decoration:none; }
+    body { margin:0 !important; padding:0 !important; width:100% !important; }
+    @media only screen and (max-width:620px) {
+      .email-container { width:100% !important; max-width:100% !important; }
+      .mobile-padding { padding-left:16px !important; padding-right:16px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:{{colors.bodyBg}}; width:100%;">
+
+<!-- ============================================================
+     Outer wrapper
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background-color:{{colors.bodyBg}};">
+  <tr>
+    <td align="center" style="padding:24px 16px;">
+
+      <!-- Responsive container -->
+      <table role="presentation" class="email-container" width="100%" cellpadding="0"
+             cellspacing="0" border="0"
+             style="width:100%; margin:0 auto;
+                    background-color:{{colors.containerBg}};
+                    box-shadow:0 1px 4px rgba(0,0,0,0.12);">
+
+        <!-- ── HEADER ─────────────────────────────────────────── -->
+        <tr><td>{{> header}}</td></tr>
+
+        <!-- ── HERO: Shipped message ──────────────────────────── -->
+        <tr>
+          <td style="background-color:{{colors.containerBg}}; padding:36px 32px 32px 32px; text-align:center; border-bottom:1px solid {{colors.cardBorder}};">
+            <!-- Truck icon -->
+            <div style="display:inline-block; width:52px; height:52px;
+                        background-color:#DC2626; border-radius:50%;
+                        font-family:Arial,Helvetica,sans-serif; font-size:26px;
+                        color:#FFFFFF; line-height:52px; text-align:center;
+                        margin-bottom:16px;">&#128666;</div>
+            <div style="font-family:Arial,Helvetica,sans-serif; font-size:26px;
+                        font-weight:700; color:{{colors.textColor}}; letter-spacing:0.5px;
+                        margin-bottom:8px;">
+              Your Order Is On Its Way!
+            </div>
+            <div style="font-family:Arial,Helvetica,sans-serif; font-size:15px;
+                        color:{{colors.textMuted}}; margin-bottom:16px;">
+              Hi {{customerFirstName}}, great news — your order has shipped!
+            </div>
+            <!-- Order number badge -->
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background-color:#DC2626; border-radius:2px; padding:8px 24px;">
+                  <span style="font-family:Arial,Helvetica,sans-serif; font-size:14px;
+                               font-weight:700; color:#FFFFFF; letter-spacing:2px;
+                               text-transform:uppercase;">
+                    Order #{{orderNumber}}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── TRACKING INFO ──────────────────────────────────── -->
+        <tr>
+          <td style="padding:32px 32px 24px 32px; background-color:{{colors.containerBg}};">
+            <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:700;
+                      color:{{colors.textColor}}; text-transform:uppercase; letter-spacing:1px;
+                      margin:0 0 16px 0; padding-bottom:10px;
+                      border-bottom:2px solid {{colors.titleBorder}};">
+              Tracking Information
+            </p>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="border:1px solid {{colors.cardBorder}}; background-color:{{colors.cardBg}}; border-radius:2px;">
+              <tr>
+                <td style="padding:20px 24px;">
+
+                  <!-- Carrier + tracking number -->
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                         border="0" style="margin-bottom:14px;">
+                    <tr>
+                      <td style="width:130px; font-family:Arial,Helvetica,sans-serif;
+                                 font-size:12px; font-weight:700; color:{{colors.textMuted}};
+                                 text-transform:uppercase; letter-spacing:0.5px;
+                                 vertical-align:top; padding-top:2px;">
+                        Carrier
+                      </td>
+                      <td style="font-family:Arial,Helvetica,sans-serif; font-size:14px;
+                                 font-weight:700; color:{{colors.textColor}}; vertical-align:top;">
+                        {{carrier}}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                         border="0" style="margin-bottom:16px;">
+                    <tr>
+                      <td style="width:130px; font-family:Arial,Helvetica,sans-serif;
+                                 font-size:12px; font-weight:700; color:{{colors.textMuted}};
+                                 text-transform:uppercase; letter-spacing:0.5px;
+                                 vertical-align:top; padding-top:2px;">
+                        Tracking #
+                      </td>
+                      <td style="font-family:'Courier New',Courier,monospace; font-size:15px;
+                                 font-weight:700; color:{{colors.textColor}}; vertical-align:top;
+                                 letter-spacing:1px;">
+                        {{trackingNumber}}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Track button (conditional on trackingUrl) -->
+                  {{#if trackingUrl}}
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="background-color:#DC2626; border-radius:2px;
+                                 padding:10px 24px;">
+                        <a href="{{trackingUrl}}"
+                           style="font-family:Arial,Helvetica,sans-serif; font-size:13px;
+                                  font-weight:700; color:#FFFFFF; text-decoration:none;
+                                  text-transform:uppercase; letter-spacing:1px;">
+                          Track My Package &rarr;
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                  {{else}}
+                  <p style="font-family:Arial,Helvetica,sans-serif; font-size:12px;
+                             color:{{colors.textMuted}}; margin:0; font-style:italic;">
+                    Visit your carrier's website and enter the tracking number above to
+                    check the status of your shipment.
+                  </p>
+                  {{/if}}
+
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── ESTIMATED DELIVERY ─────────────────────────────── -->
+        {{#if estimatedDelivery}}
+        <tr>
+          <td style="padding:0 32px 24px 32px; background-color:{{colors.containerBg}};">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="background-color:{{colors.notesBg}}; border-left:3px solid {{colors.notesBorder}};
+                          border-radius:2px;">
+              <tr>
+                <td style="padding:14px 18px;">
+                  <p style="font-family:Arial,Helvetica,sans-serif; font-size:13px;
+                             color:{{colors.notesText}}; margin:0; line-height:1.5;">
+                    <strong>Estimated Delivery:</strong> {{estimatedDelivery}}<br>
+                    <span style="font-size:12px; color:{{colors.notesText}};">
+                      Delivery windows are estimates provided by the carrier and may vary.
+                    </span>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {{/if}}
+
+        <!-- ── ORDER ITEMS SUMMARY ────────────────────────────── -->
+        <tr>
+          <td style="padding:0 32px 32px 32px; background-color:{{colors.containerBg}};">
+            <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:700;
+                      color:{{colors.textColor}}; text-transform:uppercase; letter-spacing:1px;
+                      margin:0 0 16px 0; padding-bottom:10px;
+                      border-bottom:2px solid {{colors.titleBorder}};">
+              Items In This Shipment
+            </p>
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <!-- Table header -->
+              <tr style="background-color:{{colors.accentColor}};">
+                <td style="padding:10px 12px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:11px; font-weight:700; color:#FFFFFF;
+                           text-transform:uppercase; letter-spacing:0.5px; width:50%;">
+                  Product
+                </td>
+                <td style="padding:10px 8px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:11px; font-weight:700; color:#FFFFFF;
+                           text-transform:uppercase; letter-spacing:0.5px; width:20%;">
+                  SKU
+                </td>
+                <td style="padding:10px 8px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:11px; font-weight:700; color:#FFFFFF;
+                           text-transform:uppercase; letter-spacing:0.5px; width:10%;
+                           text-align:center;">
+                  Qty
+                </td>
+                <td style="padding:10px 12px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:11px; font-weight:700; color:#FFFFFF;
+                           text-transform:uppercase; letter-spacing:0.5px; width:20%;
+                           text-align:right;">
+                  Price
+                </td>
+              </tr>
+
+              <!-- Line items loop -->
+              {{#each items}}
+              <tr style="background-color:{{#if @even}}{{../colors.rowEvenBg}}{{else}}{{../colors.rowOddBg}}{{/if}};">
+                <td style="padding:11px 12px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:13px; color:{{../colors.textColor}}; vertical-align:top;
+                           border-bottom:1px solid {{../colors.rowBorder}};">
+                  {{this.title}}
+                </td>
+                <td style="padding:11px 8px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:12px; color:{{../colors.textMuted}}; vertical-align:top;
+                           border-bottom:1px solid {{../colors.rowBorder}};">
+                  {{this.sku}}
+                </td>
+                <td style="padding:11px 8px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:13px; color:{{../colors.textColor}}; vertical-align:top;
+                           text-align:center; border-bottom:1px solid {{../colors.rowBorder}};">
+                  {{this.quantity}}
+                </td>
+                <td style="padding:11px 12px; font-family:Arial,Helvetica,sans-serif;
+                           font-size:13px; color:{{../colors.textColor}}; vertical-align:top;
+                           text-align:right; border-bottom:1px solid {{../colors.rowBorder}};">
+                  {{formatPrice this.lineTotal}}
+                </td>
+              </tr>
+              {{/each}}
+
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── REFUND DISCLAIMER ───────────────────────────────── -->
+        <tr><td>{{> refund-disclaimer}}</td></tr>
+
+        <!-- ── FOOTER ─────────────────────────────────────────── -->
+        <tr><td>{{> footer}}</td></tr>
+
+      </table>
+      <!-- /container -->
+
+    </td>
+  </tr>
+</table>
+<!-- /outer wrapper -->
+
+</body>
+</html>

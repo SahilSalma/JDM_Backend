@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>New Contact Form Inquiry — {{subject}}</title>
+  <!--[if mso]>
+  <noscript>
+    <xml><o:OfficeDocumentSettings>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings></xml>
+  </noscript>
+  <![endif]-->
+  <style type="text/css">
+    body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
+    img { -ms-interpolation-mode:bicubic; border:0; height:auto; line-height:100%;
+          outline:none; text-decoration:none; }
+    body { margin:0 !important; padding:0 !important; width:100% !important; }
+    @media only screen and (max-width:620px) {
+      .email-container { width:100% !important; max-width:none !important; }
+      .mobile-padding { padding-left:16px !important; padding-right:16px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:{{colors.bodyBg}}; width:100%;">
+
+<!-- ============================================================
+     Outer wrapper - Full width
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background-color:{{colors.bodyBg}};">
+  <tr>
+    <td align="center" style="padding:24px 16px;">
+
+      <!-- Responsive container -->
+      <table role="presentation" class="email-container" width="100%" cellpadding="0"
+             cellspacing="0" border="0"
+             style="width:100%; margin:0 auto;
+                    background-color:{{colors.containerBg}};
+                    box-shadow:0 1px 4px rgba(0,0,0,0.12);">
+
+        <!-- ── HEADER ─────────────────────────────────────────── -->
+        <tr><td>{{> header}}</td></tr>
+
+        <!-- ── HERO: New contact alert ─────────────────────────── -->
+        <tr>
+          <td style="background-color:{{colors.containerBg}}; padding:32px; text-align:center; border-bottom:1px solid {{colors.cardBorder}};">
+            <div style="display:inline-block; width:52px; height:52px;
+                        background-color:#DC2626; border-radius:50%;
+                        font-family:Arial,Helvetica,sans-serif; font-size:26px;
+                        color:#FFFFFF; line-height:52px; text-align:center;
+                        margin-bottom:16px;">&#9993;</div>
+            <div style="font-family:Arial,Helvetica,sans-serif; font-size:24px;
+                        font-weight:700; color:{{colors.textColor}}; letter-spacing:0.5px;
+                        margin-bottom:6px;">
+              New Contact Form Inquiry
+            </div>
+            <div style="font-family:Arial,Helvetica,sans-serif; font-size:14px;
+                        color:{{colors.textMuted}}; margin-bottom:16px;">
+              {{name}} sent a message via the contact form.
+            </div>
+            <!-- Subject badge -->
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background-color:#DC2626; border-radius:2px; padding:8px 24px;">
+                  <span style="font-family:Arial,Helvetica,sans-serif; font-size:14px;
+                               font-weight:700; color:#FFFFFF; letter-spacing:2px;
+                               text-transform:uppercase;">
+                    {{subject}}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── SENDER INFORMATION ─────────────────────────────── -->
+        <tr>
+          <td style="padding:24px 32px 16px 32px; background-color:{{colors.containerBg}};">
+            <p style="font-family:Arial,Helvetica,sans-serif; font-size:11px; font-weight:700;
+                      color:{{colors.textMuted}}; text-transform:uppercase; letter-spacing:1px;
+                      margin:0 0 12px 0; padding-bottom:10px;
+                      border-bottom:2px solid {{colors.titleBorder}};">
+              Sender Information
+            </p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="border:1px solid {{colors.cardBorder}}; background-color:{{colors.cardBg}}; border-radius:2px;">
+              <tr>
+                <td style="padding:16px 20px;">
+                  <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px;
+                             color:{{colors.textColor}}; line-height:1.8; margin:0;">
+                    <strong>Name:</strong> {{name}}<br>
+                    <strong>Email:</strong> <a href="mailto:{{email}}" style="color:{{colors.accentColor}}; text-decoration:none;">{{email}}</a><br>
+                    <strong>Phone:</strong> {{#if phone}}{{phone}}{{else}}<span style="color:{{colors.textMuted}};">N/A</span>{{/if}}
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── MESSAGE ─────────────────────────────────────────── -->
+        <tr>
+          <td style="padding:16px 32px; background-color:{{colors.containerBg}};">
+            <p style="font-family:Arial,Helvetica,sans-serif; font-size:11px; font-weight:700;
+                      color:{{colors.textMuted}}; text-transform:uppercase; letter-spacing:1px;
+                      margin:0 0 12px 0; padding-bottom:10px;
+                      border-bottom:2px solid {{colors.titleBorder}};">
+              Message
+            </p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="border:1px solid {{colors.cardBorder}}; background-color:{{colors.cardBg}}; border-radius:2px;">
+              <tr>
+                <td style="padding:16px 20px;">
+                  <p style="font-family:Arial,Helvetica,sans-serif; font-size:14px;
+                             color:{{colors.textColor}}; line-height:1.7; margin:0; white-space:pre-wrap;">
+                    {{message}}
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── REPLY CTA ───────────────────────────────────────── -->
+        <tr>
+          <td style="padding:16px 32px 32px 32px; background-color:{{colors.containerBg}}; text-align:center;">
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background-color:#DC2626; border-radius:2px; padding:12px 32px;">
+                  <a href="mailto:{{email}}?subject=Re: {{subject}}"
+                     style="font-family:Arial,Helvetica,sans-serif; font-size:14px;
+                            font-weight:700; color:#FFFFFF; text-decoration:none;
+                            text-transform:uppercase; letter-spacing:1px;">
+                    Reply to {{name}}
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── FOOTER ─────────────────────────────────────────── -->
+        <tr><td>{{> footer}}</td></tr>
+
+      </table>
+      <!-- /container -->
+
+    </td>
+  </tr>
+</table>
+<!-- /outer wrapper -->
+
+</body>
+</html>

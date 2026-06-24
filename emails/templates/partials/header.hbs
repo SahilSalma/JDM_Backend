@@ -1,0 +1,42 @@
+<!-- ============================================================
+     JDM Tokyo Motorsports — Email Header Partial
+     ============================================================ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background-color:{{colors.containerBg}}; margin:0; padding:0;">
+  <tr>
+    <td align="center" style="padding:0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+             style="width:100%; margin:0 auto;">
+        <!-- Red accent top bar -->
+        <tr>
+          <td style="height:4px; background-color:#DC2626; font-size:0; line-height:0;">&nbsp;</td>
+        </tr>
+        <!-- Logo / Brand name row -->
+        <tr>
+          <td align="center" style="padding:28px 32px 24px 32px; background-color:{{colors.containerBg}};">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td align="center">
+                  <!-- Branded Logo Image -->
+                  <a href="{{frontendUrl}}" target="_blank" style="text-decoration:none; display:inline-block;">
+                    <img src="{{logoUrl}}" 
+                         alt="{{#if logoAlt}}{{logoAlt}}{{else}}JDM Tokyo Motorsports{{/if}}" 
+                         width="{{#if logoWidth}}{{logoWidth}}{{else}}220{{/if}}" 
+                         style="display:block; border:0; width:{{#if logoWidth}}{{logoWidth}}{{else}}220{{/if}}px; max-width:100%; height:auto; outline:none; text-decoration:none;" />
+                  </a>
+                  <!-- Red underline accent -->
+                  <div style="margin:10px auto 0 auto; width:56px; height:3px;
+                              background-color:#DC2626; font-size:0; line-height:0;">&nbsp;</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Bottom divider -->
+        <tr>
+          <td style="height:1px; background-color:{{colors.cardBorder}}; font-size:0; line-height:0;">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
