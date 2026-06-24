@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "node node_modules/typescript/bin/tsc",
-    "start": "node dist/server.js",
+    "build": "echo 'Build not needed - using tsx'",
+    "start": "tsx src/server.ts",
     "db:migrate": "tsx src/config/migrate.ts",
     "db:seed": "tsx src/config/seed.ts",
     "db:data": "tsx src/config/data.ts"
