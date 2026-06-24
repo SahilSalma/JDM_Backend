@@ -281,6 +281,7 @@ async function migrate(): Promise<void> {
     ['mileage_km', 'INTEGER'],
     ['condition', 'TEXT'],
     ['condition_notes', 'TEXT'],
+    ['included_items', 'TEXT'],
     ['specs_json', 'TEXT'],
     ['warranty_summary', 'TEXT'],
     ['related_product_ids', 'TEXT'],
