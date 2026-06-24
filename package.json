@@ -32,10 +32,6 @@
     "sharp": "^0.33.5",
     "uuid": "^11.0.5",
     "zod": "^3.24.2",
-    "typescript": "^5.9.3",
-    "tsx": "^4.19.3"
-  },
-  "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/better-sqlite3": "^7.6.12",
     "@types/cors": "^2.8.17",
@@ -46,6 +42,10 @@
     "@types/node-cron": "^3.0.11",
     "@types/nodemailer": "^6.4.17",
     "@types/uuid": "^10.0.0",
+    "typescript": "^5.9.3",
+    "tsx": "^4.19.3"
+  },
+  "devDependencies": {
     "drizzle-kit": "^0.30.4"
   }
 }
